@@ -2,19 +2,25 @@
 
 Read using an ESP32 dev board and [Arduino-IRremote library](https://github.com/Arduino-IRremote/Arduino-IRremote) (ReceiveDump example).
 
+Codes can be sent with this library using `sendNEC`:
+
+```
+IrSender.sendNEC(address, command, numberOfRepeats);
+```
+
 ## Unknown model
 
-This type was supplied with SMSL AO200 amplifier, it does not have any visibel model number:
+This type was supplied with SMSL AO200 amplifier, it does not have any visible model number:
 
-![image](https://github.com/raintonr/SMSL-Remote-Codes/assets/3794098/c83fdcfe-ebef-4920-ace2-eae02a536dcf)
+![SMSL Unknown (AO200) Remote](SMSL%20Unknown%20(AO200)%20Remote.png)
 
-The A/B/C buttons do not emmit a signal, and are used to change the address of other buttons.
+The A/B/C buttons do not emmit a signal and are used to change the address of other buttons.
 
-After A address is 0x3412.
-After B address is 0x3512.
-After C address is 0x3612.
+- After A address is 0x3412.
+- After B address is 0x3512.
+- After C address is 0x3612.
 
-Commands are identical in each mode (just the address changes):
+Commands are identical in each mode:
 
 | Button | Command |
 | ------ | ------- |
@@ -32,4 +38,20 @@ Commands are identical in each mode (just the address changes):
 
 This type was supplied with SMSL DO100 DAC and is labeled RC-8C:
 
-![image](https://github.com/raintonr/SMSL-Remote-Codes/assets/3794098/381b8682-d52a-43b3-b0c6-c9ca292057f6)
+![SMSL RC-8C Remote](SMSL%20RC-8C%20Remote.png)
+
+Commands are transmitted with address 0x3612.
+
+| Button | Command |
+| ------ | ------- |
+| Power  | 0x1     |
+| Up     | 0x2     |
+| Down   | 0x6     |
+| Left   | 0x3     |
+| Right  | 0x5     |
+| Centre | 0x4     |
+| Input  | 0x7     |
+| FN     | 0x8     |
+| Mute   | 0x9     |
+| +      | 0xA     |
+| -      | 0xB     |
